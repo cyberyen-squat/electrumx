@@ -456,6 +456,10 @@ class DeserializerAuxPowSegWit(DeserializerSegWit, DeserializerAuxPow):
     pass
 
 
+class DeserializerAuxPowMweb(DeserializerLitecoin, DeserializerAuxPow):
+    pass
+
+
 class DeserializerEquihash(Deserializer):
     def read_header(self, static_header_size):
         '''Return the block header bytes'''

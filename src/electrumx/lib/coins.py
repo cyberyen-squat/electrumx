@@ -1081,6 +1081,53 @@ class LitecoinRegtest(LitecoinTestnet):
     TX_COUNT_HEIGHT = 1
 
 
+class Cyberyen(AuxPowMixin, Coin):
+    NAME = "Cyberyen"
+    SHORTNAME = "CY"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("0188b21e")
+    XPRV_VERBYTES = bytes.fromhex("0188ade4")
+    P2PKH_VERBYTE = bytes.fromhex("1c")
+    P2SH_VERBYTES = (bytes.fromhex("16"), bytes.fromhex("4d"))
+    WIF_BYTE = bytes.fromhex("9c")
+    GENESIS_HASH = ('34458c96bb547193fa90b2f259905668'
+                    '4b0083d8a2996f2025943eb545031d29')
+    DESERIALIZER = lib_tx.DeserializerAuxPowMweb
+    TX_COUNT = 1124296
+    TX_COUNT_HEIGHT = 557914
+    TX_PER_BLOCK = 20
+    RPC_PORT = 58382
+    REORG_LIMIT = 1000
+    PEERS = []
+
+
+class CyberyenTestnet(Cyberyen):
+    SHORTNAME = "XCY"
+    NET = "testnet"
+    XPUB_VERBYTES = bytes.fromhex("043587cf")
+    XPRV_VERBYTES = bytes.fromhex("04358394")
+    P2PKH_VERBYTE = bytes.fromhex("70")
+    P2SH_VERBYTES = (bytes.fromhex("3a"), bytes.fromhex("c4"))
+    WIF_BYTE = bytes.fromhex("f0")
+    GENESIS_HASH = ('fc87d3af1c388f561386e08cfb74819c'
+                    'c04cf33ddb6c39f0bfb685048d3dfb2a')
+    TX_COUNT = 1
+    TX_COUNT_HEIGHT = 1
+    TX_PER_BLOCK = 2
+    RPC_PORT = 44550
+    REORG_LIMIT = 4000
+    PEER_DEFAULT_PORTS = {'t': '51001', 's': '51002'}
+    PEERS = []
+
+
+class CyberyenRegtest(CyberyenTestnet):
+    NET = "regtest"
+    GENESIS_HASH = ('69d049e08f8eb4e26290d8f4ad379aa2'
+                    '37cd3aab158a42e2ee6c615815a17e62')
+    TX_COUNT = 1
+    TX_COUNT_HEIGHT = 1
+
+
 class BitcoinCashRegtest(BitcoinTestnetMixin, Coin):
     NAME = "BitcoinCash"
     NET = "regtest"
